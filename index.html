@@ -35,7 +35,6 @@ body::before {
   z-index: 0;
 }
 
-
 .top-bar {
   position: fixed;
   top: 25px;
@@ -45,15 +44,12 @@ body::before {
   justify-content: center;
   gap: 12px;
   z-index: 100;
-  
-  /* Glassmorphism with same smoothness as buttons */
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px; /* Matched to normal buttons */
+  border-radius: 14px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  
   animation: slideDown 1s ease-out;
 }
 
@@ -67,12 +63,13 @@ body::before {
   padding: 8px 20px !important;
   font-size: 13px !important;
   text-transform: none !important;
-  border-radius: 10px !important; /* Slightly tighter for inner buttons */
+  border-radius: 10px !important;
   border-width: 1px !important;
   background: rgba(255, 255, 255, 0.02) !important;
   border-color: rgba(75, 29, 194, 0.4) !important;
+  position: relative;
+  overflow: hidden;
 }
-
 
 .container {
   position: relative;
@@ -172,7 +169,6 @@ h1 {
   line-height: 1.6;
 }
 
-/* --- MAIN BUTTONS --- */
 .button-group {
   display: flex;
   gap: 20px;
@@ -263,13 +259,12 @@ button:hover::before {
   </div>
 
   <div class="button-group">
-    <button class="btn-filled" onmousemove="handleHover(event)">Check out scripts</button>
+    <button class="btn-filled" onmousemove="handleHover(event)" onclick="window.location.href='catalog.html'">Check out scripts</button>
     <button class="btn-outline" onmousemove="handleHover(event)" onclick="window.location.href='https://kattdevv.github.io/Katt-Dev-Premium/'">Premium</button>
   </div>
 </div>
 
 <script>
-
 function handleHover(e) {
   const btn = e.currentTarget;
   const rect = btn.getBoundingClientRect();
@@ -279,7 +274,6 @@ function handleHover(e) {
   btn.style.setProperty('--x', x + '%');
   btn.style.setProperty('--y', y + '%');
 }
-
 
 const meowAudio = new Audio('sillymeow.mp3');
 function playMeow() {
